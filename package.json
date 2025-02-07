@@ -1,0 +1,111 @@
+{
+  "name": "windsurf-website-monitor",
+  "displayName": "Website Monitor for Windsurf",
+  "description": "Monitor websites for changes with AI-powered analysis in Windsurf",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.85.0",
+    "windsurf": "^1.0.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "website-monitor.startMonitoring",
+        "title": "Start Website Monitoring",
+        "category": "Website Monitor"
+      },
+      {
+        "command": "website-monitor.stopMonitoring",
+        "title": "Stop Website Monitoring",
+        "category": "Website Monitor"
+      },
+      {
+        "command": "website-monitor.addWebsite",
+        "title": "Add Website to Monitor",
+        "category": "Website Monitor"
+      }
+    ],
+    "windsurfCommands": [
+      {
+        "command": "website-monitor.addWebsite",
+        "title": "Monitor Website",
+        "category": "Website Monitor",
+        "ai": {
+          "description": "Add a website to monitor for changes",
+          "examples": [
+            "monitor website changes",
+            "track website updates",
+            "watch for website modifications"
+          ]
+        }
+      }
+    ],
+    "configuration": {
+      "title": "Website Monitor",
+      "properties": {
+        "websiteMonitor.websites": {
+          "type": "array",
+          "default": [],
+          "description": "list of websites to monitor",
+          "items": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "description": "website URL"
+              },
+              "selector": {
+                "type": "string",
+                "description": "CSS selector to monitor specific element (optional)"
+              },
+              "interval": {
+                "type": "number",
+                "description": "check interval in minutes",
+                "default": 5
+              }
+            }
+          }
+        },
+        "websiteMonitor.aiAnalysis": {
+          "type": "boolean",
+          "default": true,
+          "description": "use AI to analyze website changes"
+        },
+        "websiteMonitor.changeHighlighting": {
+          "type": "boolean",
+          "default": true,
+          "description": "highlight changes in preview"
+        },
+        "websiteMonitor.notifications": {
+          "type": "boolean",
+          "default": true,
+          "description": "show notifications when changes are detected"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/diff": "^7.0.1",
+    "@types/node": "^16.18.34",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "eslint": "^8.26.0",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "diff": "^5.1.0",
+    "playwright": "^1.41.0"
+  }
+}
