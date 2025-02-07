@@ -8,6 +8,7 @@ let statusBar: StatusBarManager;
 let analyzer: AIAnalyzer;
 
 export function activate(context: vscode.ExtensionContext) {
+  console.log("Activating Website Monitor extension...");
   analyzer = new AIAnalyzer();
   monitor = new WebMonitor(analyzer);
   statusBar = new StatusBarManager();

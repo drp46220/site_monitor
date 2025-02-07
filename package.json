@@ -16,23 +16,33 @@
   "categories": [
     "Other"
   ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:website-monitor.addWebsite",
+    "onCommand:website-monitor.startMonitoring",
+    "onCommand:website-monitor.stopMonitoring",
+    "*"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
+        "command": "website-monitor.addWebsite",
+        "title": "Add Website to Monitor",
+        "category": "Website Monitor",
+        "enablement": "true"
+      },
+      {
         "command": "website-monitor.startMonitoring",
         "title": "Start Website Monitoring",
-        "category": "Website Monitor"
+        "category": "Website Monitor",
+        "enablement": "true"
       },
       {
         "command": "website-monitor.stopMonitoring",
         "title": "Stop Website Monitoring",
-        "category": "Website Monitor"
-      },
-      {
-        "command": "website-monitor.addWebsite",
-        "title": "Add Website to Monitor",
-        "category": "Website Monitor"
+        "category": "Website Monitor",
+        "enablement": "true"
       }
     ],
     "windsurfCommands": [
