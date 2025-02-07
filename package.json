@@ -3,6 +3,12 @@
   "displayName": "Website Monitor for Windsurf",
   "description": "Monitor websites for changes with AI-powered analysis in Windsurf",
   "version": "0.0.1",
+  "publisher": "drp46220",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/drp46220/site_monitor.git"
+  },
   "engines": {
     "vscode": "^1.85.0",
     "windsurf": "^1.0.0"
